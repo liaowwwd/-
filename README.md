@@ -5,8 +5,11 @@
 ## 1. 文法描述
 经对比，TINY+语法与TINY语法区别仅为标黄部分
 program 				declaration-list; stmt-sequence
+
 declaration-list 	→ 	declaration-list declaration | declaration
+
 declaration 		→ 	type-specifier identifier; 
+
 type-specifier 		→ 	int | char
 stmt-sequence 		stmt-sequence; statement | statement
 statement				if-stmt | repeat-stmt | assign-stmt | read-stmt | write-stmt
