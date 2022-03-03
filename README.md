@@ -11,23 +11,40 @@ declaration-list 	→ 	declaration-list declaration | declaration
 declaration 		→ 	type-specifier identifier; 
 
 type-specifier 		→ 	int | char
-stmt-sequence 		stmt-sequence; statement | statement
-statement				if-stmt | repeat-stmt | assign-stmt | read-stmt | write-stmt
-if-stmt 			  	if (exp) then stmt-sequence end
+
+stmt-sequence 	→	stmt-sequence; statement | statement
+
+statement			→	if-stmt | repeat-stmt | assign-stmt | read-stmt | write-stmt
+
+if-stmt 		→	  	if (exp) then stmt-sequence end
                 | if (exp) then stmt-sequence else stmt-sequence end
-repeat-stmt 			repeat stmt-sequence until exp
-assign-stmt 			identifier := exp
-read-stmt 		 	read identifier
-write-stmt 			write exp
-exp 					simple-exp comparson-op simple-exp | simple-exp
-comparison 		 	< | =
-simple-exp			simple-exp addop term | term
-addop			 	+ | -
-term 			 	term mulop factor | factor
-mulop 			 	* | /
-factor 				 (exp) | number | identifier
-number				(+|-)?[1-9][0-9]*
-identifier			 	[a-zA-Z]([0-9]| [a-zA-Z])*
+                
+repeat-stmt 	→		repeat stmt-sequence until exp
+
+assign-stmt 		→	identifier := exp
+
+read-stmt 	→	 	read identifier
+
+write-stmt 	→		write exp
+
+exp 		→			simple-exp comparson-op simple-exp | simple-exp
+
+comparison 	→	 	< | =
+
+simple-exp		→	simple-exp addop term | term
+
+addop		→	 	+ | -
+
+term 		→	 	term mulop factor | factor
+
+mulop 	→		 	* | /
+
+factor 		→		 (exp) | number | identifier
+
+number		→		(+|-)?[1-9][0-9]*
+
+identifier	→		 	[a-zA-Z]([0-9]| [a-zA-Z])*
+
 
 
 DFA如图所示，当前记号（token）属于INID时，需要检测其是否为关键字。相对于TINY，TINY+的关键字种类增加了CHAR与INT。因此不用更改原TINY语言的DFA
@@ -42,7 +59,7 @@ DFA如图所示，当前记号（token）属于INID时，需要检测其是否�
 
 ### 2．2 上下无关文法及分析 构造抽象语法树 parse.c
 #### 2．2．1针对新增文法declaration-list：
-program 				declaration-list; stmt-sequence
+program 		→		declaration-list; stmt-sequence
 declaration-list 	→ 	declaration-list declaration | declaration
 declaration 		→ 	type-specifier identifier; 
 type-specifier 		→ 	int | char
