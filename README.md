@@ -87,8 +87,7 @@ type-specifier 		→ 	int | char
 #### 2.2.2 对于语法if-stmt
 
 if-stmt 		→  	if (exp) then stmt-sequence end
-
-                | if (exp) then stmt-sequence else stmt-sequence end
+                    | if (exp) then stmt-sequence else stmt-sequence end
                 
 从原来的exp变为(exp)，增加对左括号和有括号的match操作。
 
@@ -96,7 +95,6 @@ if-stmt 		→  	if (exp) then stmt-sequence end
 原TINY语言共将树节点分为两种类型，StmtKind和ExpKind。其中StmtKind对应
 
 if-stmt 		→	  	if (exp) then stmt-sequence end
-
                 | if (exp) then stmt-sequence else stmt-sequence end
                 
 repeat-stmt 		→	repeat stmt-sequence until exp
