@@ -85,6 +85,7 @@ type-specifier 		→ 	int | char
 同时，增加program函数用以衔接declaration-list与 stmt-sequence
 
 #### 2.2.2 对于语法if-stmt
+
 if-stmt 		→  	if (exp) then stmt-sequence end
 
                 | if (exp) then stmt-sequence else stmt-sequence end
@@ -93,6 +94,7 @@ if-stmt 		→  	if (exp) then stmt-sequence end
 
 #### 2.2.3 总述
 原TINY语言共将树节点分为两种类型，StmtKind和ExpKind。其中StmtKind对应
+
 if-stmt 		→	  	if (exp) then stmt-sequence end
 
                 | if (exp) then stmt-sequence else stmt-sequence end
